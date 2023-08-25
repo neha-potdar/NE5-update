@@ -1,0 +1,89 @@
+<%- contentFor('HeaderCss') %>
+
+ <!-- jquery.vectormap css -->
+ <link href="public/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
+ type="text/css" />
+ 
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Dashboard</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Welcome to Qovex Dashboard</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+
+
+
+  
+<!-- end row -->
+
+               
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title mb-4">API List</h4>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>API ID</th>
+                        <th>API Alias Name</th>
+                        <th>Price</th>
+                        <th>Price2</th>
+                        <th>Price3</th>
+                        <th>Price4</th>
+                        <th>Type</th>
+                        <th>Comments</th>
+                        <th>Enable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.api_id %></td>
+                            <td><%= user.api_alias_name %></td>
+                            <td><%= user.price %></td>
+                            <td><%= user.price2 %></td>
+                            <td><%= user.price3 %></td>
+                            <td><%= user.price4 %></td>
+                            <td><%= user.type %></td>
+                            <td><%= user.comments %></td>
+                            <td><%= user.enable %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!-- end row -->
+
+<%- contentFor('FooterJs') %>
+
+<!-- apexcharts -->
+<script src="public/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- jquery.vectormap map -->
+<script src="public/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="public/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js"></script>
+
+<script src="public/assets/js/pages/dashboard.init.js"></script>
+
+<%- contentFor('BottomJs') %>

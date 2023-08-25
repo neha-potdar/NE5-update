@@ -1,0 +1,291 @@
+<%- contentFor('HeaderCss') %>
+
+ <!-- jquery.vectormap css -->
+ <link href="public/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
+ type="text/css" />
+ 
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Dashboard</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Welcome to Qovex Dashboard</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+
+
+    <div class="col-xl-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Reviews</h4>
+                <div class="mb-4">
+                    <h5><span class="text-primary">500</span>+ Satisfied clients</h5>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-quote-left h4 text-primary"></i>
+                </div>
+                <div id="reviewExampleControls" class="carousel slide review-carousel"
+                    data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div>
+                                <p>To achieve this, it would be necessary to have uniform grammar,
+                                    pronunciation and more common words</p>
+                                <div class="d-flex align-items-start mt-4">
+                                    <div class="avatar-sm me-3">
+                                        <span
+                                            class="avatar-title bg-soft-primary text-primary rounded-circle">
+                                            J
+                                        </span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-size-16 mb-1">Jessie Mitchell</h5>
+                                        <p class="mb-2">CEO of ABC Company</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div>
+                                <p>For science, music, sport, etc, Europe uses the same vocabulary
+                                    languages only differ in their grammar</p>
+                                <div class="d-flex align-items-start mt-4">
+                                    <div class="avatar-sm me-3">
+                                        <img src="public/assets/images/users/avatar-4.jpg" alt=""
+                                            class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-size-16 mb-1">Kelly Rivera</h5>
+                                        <p class="mb-2">Web Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div>
+                                <p>The new common language will be more simple and regular than the
+                                    existing European languages.</p>
+                                <div class="d-flex align-items-start mt-4">
+                                    <div class="avatar-sm me-3">
+                                        <span
+                                            class="avatar-title bg-soft-primary text-primary rounded-circle">
+                                            S
+                                        </span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-size-16 mb-1">Simon Hawkins</h5>
+                                        <p class="mb-2">CEO of XYZ Company</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="carousel-control-prev" href="#reviewExampleControls" role="button"
+                        data-bs-slide="prev">
+                        <i class="mdi mdi-chevron-left carousel-control-icon"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#reviewExampleControls" role="button"
+                        data-bs-slide="next">
+                        <i class="mdi mdi-chevron-right carousel-control-icon"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Revenue by location</h4>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div id="usa-vectormap" style="height: 230px"></div>
+                    </div>
+
+                    <div class="col-sm-5 ms-auto">
+                        <div class="mt-4 mt-sm-0">
+                            <p>Last month Revenue</p>
+
+                            <div class="d-flex align-items-start py-3">
+                                <div class="flex-1">
+                                    <p class="mb-2">California</p>
+                                    <h5 class="mb-0">$ 2,256</h5>
+                                </div>
+                                <div class="ms-auto">
+                                    2.52 % <i class="mdi mdi-arrow-up text-success ms-1"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start py-3 border-top">
+                                <div class="flex-1">
+                                    <p class="mb-2">Nevada</p>
+                                    <h5 class="mb-0">$ 1,853</h5>
+                                </div>
+                                <div class="ms-auto">
+                                    1.26 % <i class="mdi mdi-arrow-up text-success ms-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Inbox</h4>
+
+                <ul class="inbox-wid list-unstyled">
+                    <li class="inbox-list-item">
+                        <a href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 align-self-center">
+                                    <img src="public/assets/images/users/avatar-3.jpg" alt=""
+                                        class="avatar-sm rounded-circle">
+                                </div>
+                                <div class="flex-1 overflow-hidden">
+                                    <h5 class="font-size-16 mb-1">Paul</h5>
+                                    <p class="text-truncate mb-0">Hey! there I'm available</p>
+                                </div>
+                                <div class="font-size-12 ms-auto">
+                                    05 min
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="inbox-list-item">
+                        <a href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 align-self-center">
+                                    <img src="public/assets/images/users/avatar-4.jpg" alt=""
+                                        class="avatar-sm rounded-circle">
+                                </div>
+                                <div class="flex-1 overflow-hidden">
+                                    <h5 class="font-size-16 mb-1">Mary</h5>
+                                    <p class="text-truncate mb-0">This theme is awesome!</p>
+                                </div>
+                                <div class="font-size-12 ms-auto">
+                                    12 min
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="inbox-list-item">
+                        <a href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 align-self-center">
+                                    <img src="public/assets/images/users/avatar-5.jpg" alt=""
+                                        class="avatar-sm rounded-circle">
+                                </div>
+                                <div class="flex-1 overflow-hidden">
+                                    <h5 class="font-size-16 mb-1">Cynthia</h5>
+                                    <p class="text-truncate mb-0">Nice to meet you</p>
+                                </div>
+                                <div class="font-size-12 ms-auto">
+                                    18 min
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="inbox-list-item">
+                        <a href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 align-self-center">
+                                    <img src="public/assets/images/users/avatar-6.jpg" alt=""
+                                        class="avatar-sm rounded-circle">
+                                </div>
+                                <div class="flex-1 overflow-hidden">
+                                    <h5 class="font-size-16 mb-1">Darren</h5>
+                                    <p class="text-truncate mb-0">I've finished it! See you so</p>
+                                </div>
+                                <div class="font-size-12 ms-auto">
+                                    2hr ago
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary btn-sm">Load more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-8">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Latest Transactions</h4>
+
+             <div class="table-responsive">
+  <% if (transactions.length > 0) { %>
+    <table>
+      <tr>
+        <th>Transaction id</th>
+        <th>Transaction Price</th>
+        <th>Transaction Type</th>
+        <th>Transaction Credit/Debit</th>
+        <th>Transaction Narration</th>
+        <th>Transaction Account Type</th>
+        <th>Transaction Time</th>
+        <th>Api Name</th>
+      </tr>
+      <% transactions.forEach(function(transaction) { %>
+        <tr>
+          <td><%= transaction.id %></td>
+          <td><%= transaction.price %></td>
+          <td><%= transaction.type %></td>
+          <td><%= transaction.credit_debit %></td>
+          <td><%= transaction.narration %></td>
+          <td><%= transaction.account_type %></td>
+          <td><%= transaction.transaction_time %></td>
+        </tr>
+      <% }); %>
+    </table>
+  <% } else { %>
+    <p>No transactions found.</p>
+  <% } %>
+</div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<%- contentFor('FooterJs') %>
+
+<!-- apexcharts -->
+<script src="public/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- jquery.vectormap map -->
+<script src="public/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="public/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js"></script>
+
+<script src="public/assets/js/pages/dashboard.init.js"></script>
+
+<%- contentFor('BottomJs') %>

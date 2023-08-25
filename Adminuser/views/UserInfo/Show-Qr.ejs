@@ -1,0 +1,186 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link
+      rel="stylesheet"
+      href=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+    <script src=
+"https://code.jquery.com/jquery-3.6.0.slim.js">
+    </script>
+    <script
+      src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      crossorigin="anonymous">
+    </script>
+    <script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js">
+    </script>
+    <script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+      function sendData() {
+            let filter = document.getElementById('searchField').value.toLowerCase();
+            let myTable = document.getElementById('myTable');
+            let tr = myTable.getElementsByTagName('tr');
+
+            for (let i = 0; i < tr.length; i++) {
+              let tds = tr[i].getElementsByTagName('td');
+              let foundMatch = false;
+
+              for (let j = 0; j < tds.length; j++) {
+                let td = tds[j];
+                if (td) {
+                  let textValue = td.textContent || td.innerHTML;
+                  if (textValue.toLowerCase().indexOf(filter) > -1) {
+                    foundMatch = true;
+                    break;
+                  }
+                }
+              }
+
+              if (foundMatch) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+        }
+
+
+        $(document).ready(function() {
+      // Handler for info button click
+      $(".launch").click(function() {
+        // Get account details from the data attributes
+        const accountId = $(this).data('id');
+        const accountBank = $(this).data('bank');
+        // Add more account details if needed
+
+        // Set account details in the modal
+        $("#accountId").text(accountId);
+        $("#accountBank").text(accountBank);
+        // Set more account details if needed
+
+        // Show the modal
+        $("#accountModal").modal("show");
+      });
+    });
+    </script>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .staging-card {
+        background-color: #f8f9fa;
+        transition: background-color 0.3s;
+    }
+
+    .staging-card:hover {
+        background-color: #e9ecef;
+    }
+
+    .production-card {
+        background-color: #fff;
+        transition: background-color 0.3s;
+    }
+
+    .production-card:hover {
+        background-color: #f8f9fa;
+    }
+    th{
+        font-family: Poppins;
+        background-color: royalblue;
+    }
+  </style>
+    
+  </head>
+  <body>
+    <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Search Users</h4>
+          <form id="search-form" class="mb-4">
+            <div class="input-group">
+              <input type="text" name="searchKeyword" id="searchField" class="form-control" placeholder="Search..." onkeyup="sendData()">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+       
+         
+            
+
+
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Inbox</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
+                    <li class="breadcrumb-item active">Inbox</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+
+
+</div>
+<!-- End row -->
+
+<!-- Modal -->
+
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+    <img src="<%= qr_code %>" alt="QR Code">
+</div>
+</div>
+</div>
+
+ 
+  
+
+      
+
+               
+
+  
+
+<%- contentFor('FooterJs') %>
+
+<!--tinymce js-->
+<script src="public/assets/libs/tinymce/tinymce.min.js"></script>
+
+<!-- email editor init -->
+<script src="public/assets/js/pages/email-editor.init.js"></script>
+
+<%- contentFor('BottomJs') %>
+</body>
+</html>

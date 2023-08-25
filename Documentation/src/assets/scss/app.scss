@@ -1,0 +1,27 @@
+/*
+Template Name: Docs
+Author: Themesdesign
+Website: https://Themesdesign.com/
+*/
+
+//Fonts
+@import "custom/fonts/fonts";
+
+//Core files
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "variables";
+@import "./node_modules/bootstrap/scss/mixins.scss";
+
+// Structure
+@import "custom/structure/general";
+@import "custom/structure/topbar";
+@import "custom/structure/page-head";
+@import "custom/structure/footer";
+@import "custom/structure/vertical";
+
+// Components
+@import "custom/components//waves";
+@import "custom/components/avatar";
+@import "custom/components/helper";
+@import "custom/components/demos";

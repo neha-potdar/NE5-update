@@ -1,0 +1,169 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .btn-label {
+	position: relative;
+	left: -12px;
+	display: inline-block;
+	padding: 6px 12px;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.btn {
+	margin-bottom: 10px;
+}
+
+  </style>
+    
+  </head>
+  <body>
+
+
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Inbox</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
+                    <li class="breadcrumb-item active">Inbox</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+
+
+</div>
+<!-- End row -->
+
+<!-- Modal -->
+<div class="modal fade" id="composemodal" tabindex="-1" role="dialog"
+    aria-labelledby="composemodalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="composemodalTitle">New Message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="To">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <form method="post">
+                            <textarea id="email-editor" name="area"></textarea>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send <i
+                        class="fab fa-telegram-plane ms-1"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5">
+          <div class="card overflow-hidden">
+              <div class="bg-login text-center">
+                  <div class="bg-login-overlay"></div>
+                  <div class="position-relative">
+                      <h5 class="text-white font-size-20">Welcome Back !</h5>
+                      <p class="text-white-50 mb-0">Sign in to continue to Qovex.</p>
+                      <a href="/" class="logo logo-admin mt-4">
+                          <img src="public/assets/images/logo-sm-dark.png" alt="" height="30">
+                      </a>
+                  </div>
+              </div>
+              <div class="card-body pt-5">
+                  <div class="p-2">
+                      <form class="form-horizontal" action="/registration" method="post" enctype="multipart/form-data">
+
+                          <div class="mb-3">
+                              <label class="form-label" for="name">Name</label>
+                              <input type="text" class="form-control" id="name" name="name" placeholder="Enter username">
+                          </div>
+
+                          <div class="mb-3">
+                              <label class="form-label" for="password">Password</label>
+                              <input type="password" class="form-control" id="password" name="password"
+                              placeholder="Enter password">
+                          </div>
+
+                          <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="customControlInline">
+                              <label class="form-check-label" for="customControlInline">Remember
+                                  me</label>
+                          </div>
+
+                          <div class="mt-3">
+                              <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register User</button>
+                          </div>
+
+                          <div class="mt-4 text-center">
+                              <a href="pages-recoverpw" class="text-muted"><i
+                                      class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+                          </div>
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+          
+
+      </div>
+  </div>
+</div>
+
+<%- contentFor('FooterJs') %>
+
+<!--tinymce js-->
+<script src="public/assets/libs/tinymce/tinymce.min.js"></script>
+
+<!-- email editor init -->
+<script src="public/assets/js/pages/email-editor.init.js"></script>
+
+<%- contentFor('BottomJs') %>
+</body>
+</html>

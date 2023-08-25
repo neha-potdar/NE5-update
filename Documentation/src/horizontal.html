@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Qovex - Nodejs Admin & Dashboard Template | Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Qovex is a fully featured premium Nodejs admin dashboard template built on top of awesome Bootstrap 5" name="description" />
+    <meta content="Themesdesign" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        @@include("partials/topbar.html")
+
+        @@include("partials/sidebar.html")
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18">Horizontal Layouts</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Docs</a></li>
+                                        <li class="breadcrumb-item active">Horizontal Layouts</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="p-lg-1">
+                                <p>
+                                    You may copy paste <code>views/layoutsHorizontal.ejs</code> code into the <code>views/layout.ejs</code> for set default as horizontal menu.
+                                </p>
+                            </div>
+                            <div class="p-lg-A1 mt-1">
+
+                                <div class="row mb-2 mt-4">
+                                    <div class="col">
+                                        <h5 class="mt-0 mb-2 font-size-16">How to use pre-built layouts?</h5>
+                                        <p>
+                                            Each of the layout options is provided below with steps you would need to perform in <code>views/layout.ejs</code> in the body object:
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="border p-3 text-center mb-3">
+                                            <img src="assets/images/demo/hori-light.png" alt="image"
+                                                class="img-fluid shadow" />
+                                            <h5 class="font-weight-semibold font-size-16 mt-3">Topbar Dark</h5>
+                                            Keep your body element with data attribute <code>data-topbar="dark" data-layout="horizontal"</code> E.g. <code> &lt;body data-topbar="dark" data-layout="horizontal"&gt;</code> to have dark topbar.
+                                        </div>
+                                    </div> <!-- end col -->
+
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="border p-3 text-center mb-3">
+                                            <img src="assets/images/demo/hori-topbar-light.png" alt="image"
+                                                class="img-fluid shadow" />
+                                            <h5 class="font-weight-semibold font-size-16 mt-3">Topbar Light</h5>
+                                            Keep your body element with data attribute <code>data-layout="horizontal"</code> E.g. <code> &lt;body data-layout="horizontal"&gt;</code> and remove data-topbar element to have light topbar.
+                                        </div>
+                                    </div> <!-- end col -->
+
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="border p-3 text-center mb-3">
+                                            <img src="assets/images/demo/hori-boxed.png" alt="image"
+                                                class="img-fluid shadow" />
+                                            <h5 class="font-weight-semibold font-size-16 mt-3">Boxed Layout</h5>
+                                            Keep your body element with data attribute <code>data-layout-size="boxed" data-layout="horizontal"</code> E.g. <code> &lt;body data-layout-size="boxed" data-layout="horizontal"&gt;</code> to have boxed layout.
+                                        </div>
+                                    </div> <!-- end col -->
+
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="border p-3 text-center">
+                                            <img src="assets/images/demo/hori-light.png" alt="image" class="img-fluid shadow">
+                                            <h5 class="font-size-16 mt-3">Preloader</h5>
+                                            Keep your body element with data attribute <code>data-topbar="dark" data-layout="horizontal"</code> E.g. <code> &lt;body data-topbar="dark" data-layout="horizontal" &gt;</code> to have scrollable layout. Add preloader HTML code in body tag:
+                                            
+                                            <code>&lt;div id=&quot;preloader&quot;&gt;
+                                                &lt;div id=&quot;status&quot;&gt;
+                                                    &lt;div class=&quot;spinner-chase&quot;&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                        &lt;i class=&quot;chase-dot&quot;&gt;&lt;/i&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;</code> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end row -->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+            @@include("partials/footer.html")
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

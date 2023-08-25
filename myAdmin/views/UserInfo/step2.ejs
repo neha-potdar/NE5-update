@@ -1,0 +1,16 @@
+<div class="step">
+    <h2>Step 2: Account Details</h2>
+    <label for="accountType">Account Type:</label>
+    <select id="accountType" name="accountType" required>
+      <option value="savings">Savings</option>
+      <option value="checking">Checking</option>
+    </select>
+    <br>
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" id="accountNumber" name="accountNumber" required>
+    <br>
+    <!-- Add other account details fields here -->
+    <button type="button" id="prevBtn" onclick="goToPrevStep()">Previous</button>
+    <button type="button" id="nextBtn" onclick="goToNextStep()">Next</button>
+  </div>
+  

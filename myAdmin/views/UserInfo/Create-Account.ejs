@@ -1,0 +1,94 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" />
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+  
+    
+  </head>
+  <body>
+   
+
+
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Inbox</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
+                    <li class="breadcrumb-item active">Inbox</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+
+
+</div>
+<!-- End row -->
+
+<!-- Modal -->
+<!-- MultiStep Form -->
+<h1>Bank Account Creation</h1>
+<form id="bankAccountForm" action="/createAccount" method="POST">
+  <%- include('step1.ejs') %> 
+  
+</form>
+<script>
+    // JavaScript code to handle form navigation and submission
+    const form = document.getElementById('bankAccountForm');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const steps = document.querySelectorAll('.step');
+
+    let currentStep = 0;
+    showStep(currentStep);
+
+    function showStep(stepIndex) {
+      steps.forEach((step, index) => {
+        step.style.display = index === stepIndex ? 'block' : 'none';
+      });
+      prevBtn.style.display = stepIndex === 0 ? 'none' : 'inline';
+      nextBtn.style.display = stepIndex === steps.length - 1 ? 'none' : 'inline';
+    }
+
+    function goToPrevStep() {
+      currentStep--;
+      showStep(currentStep);
+    }
+
+    function goToNextStep() {
+      currentStep++;
+      showStep(currentStep);
+    }
+
+  </script>
+
+<%- contentFor('FooterJs') %>
+
+
+<!--tinymce js-->
+<script src="\public\assets\libs\forms\form.min.js"></script>
+
+<script src="public/assets/libs/tinymce/tinymce.min.js"></script>
+
+<!-- email editor init -->
+<script src="public/assets/js/pages/email-editor.init.js"></script>
+
+<%- contentFor('BottomJs') %>
+</body>
+</html>

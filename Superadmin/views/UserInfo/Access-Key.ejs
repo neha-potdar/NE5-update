@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration and API Access Key</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .access-key-container {
+            position: relative;
+        }
+
+        .access-key-toggle {
+            position: absolute;
+            
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="mt-5 mb-4">User Registered Successfully</h1>
+                <form id="accessKeyForm">
+                    <div class="form-group">
+                        <label for="userId">User ID:</label>
+                        <input type="text" id="userId" name="userId" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ne5_member_id">ne5_member_id:</label>
+                        <input type="text" id="ne5_member_id" name="ne5_member_id" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group access-key-container">
+                        <label for="accessKey">API Access Key:</label>
+                        <div class="input-group">
+                            <input type="password" id="accessKey" name="accessKey" class="form-control" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text access-key-toggle" onclick="toggleVisibility()">&#128065;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="generateAccessKey()">Generate Access Key</button>
+                    <button type="button" class="btn btn-secondary" onclick="copyToClipboard()">Copy</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateAccessKey() {
+            const userId = document.getElementById("userId").value;
+            const ne5_member_id = document.getElementById("ne5_member_id").value;
+
+            // Implement your API key generation logic here
+            const accessKey = generateAPIKey(userId, ne5_member_id);
+
+            document.getElementById("accessKey").value = accessKey;
+        }
+
+        function copyToClipboard() {
+            const accessKeyField = document.getElementById("accessKey");
+            accessKeyField.select();
+            document.execCommand("copy");
+            alert("Access key copied to clipboard!");
+        }
+
+        function toggleVisibility() {
+            const accessKeyField = document.getElementById("accessKey");
+            const toggleIcon = document.querySelector(".access-key-toggle");
+
+            if (accessKeyField.type === "password") {
+                accessKeyField.type = "text";
+                toggleIcon.innerHTML = "&#128064;";
+            } else {
+                accessKeyField.type = "password";
+                toggleIcon.innerHTML = "&#128065;";
+            }
+        }
+
+        function generateAPIKey(userId, ne5_member_id) {
+            // Implement your API key generation logic here
+            // For example, you can use a library like crypto to generate a random key
+            // For the purpose of this example, a simple key is generated based on the user ID and ne5 member ID
+            return "API_KEY_" + userId + "_" + ne5_member_id;
+        }
+    </script>
+</body>
+</html>

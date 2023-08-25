@@ -1,0 +1,268 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .btn-label {
+	position: relative;
+	left: -12px;
+	display: inline-block;
+	padding: 6px 12px;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.btn {
+	margin-bottom: 10px;
+}
+
+  </style>
+    
+  </head>
+  <body>
+
+
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="page-title mb-0 font-size-18">Inbox</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
+                    <li class="breadcrumb-item active">Inbox</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+
+
+</div>
+<!-- End row -->
+
+<!-- Modal -->
+<div class="modal fade" id="composemodal" tabindex="-1" role="dialog"
+    aria-labelledby="composemodalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="composemodalTitle">New Message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="To">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <form method="post">
+                            <textarea id="email-editor" name="area"></textarea>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send <i
+                        class="fab fa-telegram-plane ms-1"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<!-- ./Transactions/transactions.ejs -->
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-4">All Users Credentials</h4>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Search Users</h4>
+            <form id="search-form" class="mb-4">
+              <div class="input-group">
+                <input type="text" name="searchKeyword" id="searchField" class="form-control" placeholder="Search..." onkeyup="sendData()">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <script>
+            function sendData() {
+              let filter = document.getElementById('searchField').value.toLowerCase();
+              let myTable = document.getElementById('myTable');
+              let tr = myTable.getElementsByTagName('tr');
+  
+              for (let i = 0; i < tr.length; i++) {
+                let tds = tr[i].getElementsByTagName('td');
+                let foundMatch = false;
+  
+                for (let j = 0; j < tds.length; j++) {
+                  let td = tds[j];
+                  if (td) {
+                    let textValue = td.textContent || td.innerHTML;
+                    if (textValue.toLowerCase().indexOf(filter) > -1) {
+                      foundMatch = true;
+                      break;
+                    }
+                  }
+                }
+  
+                if (foundMatch) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+            document.querySelectorAll('.toggle-icon').forEach(icon => {
+              icon.addEventListener('click', function() {
+                const balanceAmount = this.nextElementSibling;
+                balanceAmount.classList.toggle('hidden');
+              });
+            });
+          </script>
+  
+          <div class="table-responsive">
+            <table class="table table-centered mb-0" id="myTable">
+              <thead>
+                <tr>
+                  <th scope="col">Sr.No.</th>
+                  <th scope="col">Ne5 Member Id</th>
+                  <th scope="col">Name</th>
+                 
+                  <!-- <th scope="col">Balance</th>
+                  <th scope="col">Staging Balance</th>
+                  <th scope="col">Minimum Balance</th> -->
+                  <th scope="col">Client Id</th>
+                  <th scope="col">Client Secret</th>
+                  <th scope="col">Staging Client Id</th>
+                  <th scope="col">Staging Client Secret</th>
+
+
+
+
+
+
+
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.forEach((item) => { %>
+                  <tr>
+                    <td id="1" onclick="hide(this)"><%= item.id %></td>
+                    <td id="2"><%= item.ne5_member_id %></td>
+                    <td id="3"><%= item.name %></td>
+                   
+                    <!-- <td id="4" >
+                      <%= item.balance %>
+                     
+                    </td>
+                    <td id="5"><%= item.staging_balance %></td>
+                    <td id="6"><%= item.min_balance %></td> -->
+                    <td><div class="input-group" >
+                      <input style="background: none;border:none;" class="form-control password-input" id="4" type="password" value="<%= item.client_id %>">
+                      <button style="border: none;outline: none;" class="btn btn-outline-secondary toggle-password" type="button" onclick="togglePasswordVisibility(this)">
+                        <i class="mdi mdi-eye"></i>
+                      </button>
+                    </div></td>
+                    <td><div class="input-group" >
+                      <input style="background: none;border:none;" class="form-control password-input" id="5" type="password" value="<%= item.client_secret %>">
+                      <button style="border: none;outline: none;" class="btn btn-outline-secondary toggle-password" type="button" onclick="togglePasswordVisibility(this)">
+                        <i class="mdi mdi-eye"></i>
+                      </button>
+                    </div></td>
+                    <td><div class="input-group" >
+                      <input style="background: none;border:none;" class="form-control password-input" id="6" type="password" value="<%= item.staging_client_id %>">
+                      <button style="border: none;outline: none;" class="btn btn-outline-secondary toggle-password" type="button" onclick="togglePasswordVisibility(this)">
+                        <i class="mdi mdi-eye"></i>
+                      </button>
+                    </div></td>
+                    <td><div class="input-group" >
+                      <input style="background: none;border:none;" class="form-control password-input" id="7" type="password" value="<%= item.staging_client_secret %>">
+                      <button style="border: none;outline: none;" class="btn btn-outline-secondary toggle-password" type="button" onclick="togglePasswordVisibility(this)">
+                        <i class="mdi mdi-eye"></i>
+                      </button>
+                    </div></td>
+
+
+
+
+                    <td>
+                        <form action="/view-account" method="GET">
+                          <input type="hidden" name="id" value="<%= item.id %>">
+                          <button type="submit" class="btn btn-primary">View Account</button>
+                        </form>
+                      </td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Get the input field element using its id
+    function togglePasswordVisibility(button) {
+      const inputField = button.previousElementSibling;
+  
+      if (inputField.type === 'password') {
+        inputField.type = 'text';
+        button.innerHTML = '<i class="mdi mdi-eye-off"></i>';
+      } else {
+        inputField.type = 'password';
+        button.innerHTML = '<i class="mdi mdi-eye"></i>';
+      }
+    }
+  </script>
+  
+  <!-- Bootstrap and jQuery scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+<%- contentFor('FooterJs') %>
+
+<!--tinymce js-->
+<script src="public/assets/libs/tinymce/tinymce.min.js"></script>
+
+<!-- email editor init -->
+<script src="public/assets/js/pages/email-editor.init.js"></script>
+
+<%- contentFor('BottomJs') %>
+</body>
+</html>
