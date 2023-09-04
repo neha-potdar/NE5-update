@@ -582,6 +582,21 @@ app.get('/search', async (req, res) => {
               res.status(500).json({ message: 'Internal Server Error' });
             }
           });
+          app.get('/select-account',async function(req,res){
+            try{
+                  const users=await User.sequelize.query(
+                        'SELECT api_users.ne5_member_id,api_users.staging_client_id,api_users.staging_client_secret FROM api_users',
+                        {
+                              type:Sequelize.QueryTypes.SELECT
+                        }
+                       
+                  )
+                  res.render('./UserInfo/VBA')
+            }catch (error) {
+                  console.error(error);
+                  res.status(500).json({ message: 'Internal Server Error' });
+                }
+          })
           
           
           app.get('/view-credentials',async(req,res)=>{

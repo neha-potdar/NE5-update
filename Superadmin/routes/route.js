@@ -649,7 +649,33 @@ app.get('/search', async (req, res) => {
               res.status(500).json({ message: 'Internal Server Error' });
             }
           });
-
+          // app.get('/update-account', async (req, res) => {
+          //   try {
+          //     const id = req.query.id;
+          //     const page = parseInt(req.query.page) || 1; // Default to page 1 if not provided
+          //     const recordsPerPage = 10;
+          
+          //     const totalRecords = await Account.count({
+          //       where: { id: id },
+          //     });
+          
+          //     const totalPages = Math.ceil(totalRecords / recordsPerPage);
+          //     const offset = (page - 1) * recordsPerPage;
+          
+          //     const accounts = await Account.sequelize.query(
+          //       `SELECT * FROM api_users WHERE api_user.id=${id} 
+          //       LIMIT ${recordsPerPage} OFFSET ${offset}`,
+          //       {
+          //         type: Sequelize.QueryTypes.SELECT,
+          //       }
+          //     );
+          
+          //     res.render('./UserInfo/Update-User', { accounts, totalPages, currentPage: page, id });
+          //   } catch (error) {
+          //     console.error(error);
+          //     res.status(500).json({ message: 'Internal Server Error' });
+          //   }
+          // });
           
 
           app.get('/vba',(req,res)=>{
